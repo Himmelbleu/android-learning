@@ -1,0 +1,5 @@
+<resources>
+  <string name="app_name">Chap01-Activity</string>
+  <string name="input_hint">请输入一个消息</string>
+  <string name="button_text">跳转</string>
+</resources>
