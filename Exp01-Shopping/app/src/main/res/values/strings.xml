@@ -1,0 +1,11 @@
+<resources>
+  <string name="app_name">Exp01-Shopping</string>
+  <string-array name="spinner_values">
+    <item>hotmail</item>
+    <item>outlook</item>
+    <item>qq</item>
+    <item>163</item>
+    <item>gmail</item>
+    <item>sina</item>
+  </string-array>
+</resources>
