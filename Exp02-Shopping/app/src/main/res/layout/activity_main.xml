@@ -10,11 +10,11 @@
   tools:visibility="visible">
 
   <FrameLayout
-    android:id="@+id/init_layout"
+    android:id="@+id/home_init_layout"
     android:layout_width="0dp"
     android:layout_height="0dp"
     android:orientation="vertical"
-    app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+    app:layout_constraintBottom_toTopOf="@+id/nav_btns_container"
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintHorizontal_bias="0.0"
     app:layout_constraintStart_toStartOf="parent"
@@ -22,7 +22,7 @@
     app:layout_constraintVertical_bias="0.0" />
 
   <LinearLayout
-    android:id="@+id/linearLayout"
+    android:id="@+id/nav_btns_container"
     android:layout_width="0dp"
     android:layout_height="wrap_content"
     android:background="@drawable/layout_border"
@@ -38,7 +38,7 @@
     app:layout_constraintVertical_bias="1.0">
 
     <LinearLayout
-      android:id="@+id/home"
+      android:id="@+id/nav_home"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_weight="1"
@@ -59,7 +59,7 @@
     </LinearLayout>
 
     <LinearLayout
-      android:id="@+id/cart"
+      android:id="@+id/nav_cart"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_weight="1"
@@ -80,7 +80,7 @@
     </LinearLayout>
 
     <LinearLayout
-      android:id="@+id/my"
+      android:id="@+id/nav_my"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_weight="1"

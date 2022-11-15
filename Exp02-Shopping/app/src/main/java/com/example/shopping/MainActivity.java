@@ -26,24 +26,24 @@ public class MainActivity extends AppCompatActivity {
 
     e.set(view -> {
       FragmentTransaction ft = fm.beginTransaction();
-      ft.replace(R.id.init_layout, new HomeFragment());
+      ft.replace(R.id.home_init_layout, new HomeFragment());
       ft.addToBackStack(null);
       ft.commit();
-    }, R.id.home);
+    }, R.id.nav_home);
 
     e.set(view -> {
       FragmentTransaction fragmentTransaction = fm.beginTransaction();
-      fragmentTransaction.replace(R.id.init_layout, new CartFragment());
+      fragmentTransaction.replace(R.id.home_init_layout, new CartFragment());
       fragmentTransaction.addToBackStack(null);
       fragmentTransaction.commit();
-    }, R.id.cart);
+    }, R.id.nav_cart);
 
     e.set(view -> {
       FragmentTransaction fragmentTransaction = fm.beginTransaction();
-      fragmentTransaction.replace(R.id.init_layout, new MyFragment());
+      fragmentTransaction.replace(R.id.home_init_layout, new MyFragment());
       fragmentTransaction.addToBackStack(null);
       fragmentTransaction.commit();
-    }, R.id.my);
+    }, R.id.nav_my);
   }
 
 }
