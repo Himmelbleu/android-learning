@@ -1,27 +1,55 @@
 package com.example.shopping;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
 
+import com.example.shopping.fragments.CartFragment;
+import com.example.shopping.fragments.HomeFragment;
+import com.example.shopping.fragments.MyFragment;
+import com.example.shopping.utils.SimpleEvent;
+
 public class MainActivity extends AppCompatActivity {
 
-  private final String[] data = {"1", "2", "2", "2", "2", "2", "2", "2", "2", "2", "2", "2", "2", "2", "2", "2", "2", "2", "2", "2", "2", "2", "2", "2", "2", "2", "2", "2", "2", "2", "2", "2", "2", "2", "2", "2", "2",};
+  private FragmentManager fm;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
 
+//    RecyclerView rv = findViewById(R.id.recycler_view);
+//    CustomAdapter ca = new CustomAdapter(data);
+//    LinearLayoutManager manager = new LinearLayoutManager(MainActivity.this);
+//    rv.setAdapter(ca);
+//    rv.setLayoutManager(manager);
 
-    RecyclerView rv = findViewById(R.id.recycler_view);
-    CustomAdapter ca = new CustomAdapter(data);
-    rv.setAdapter(ca);
+    SimpleEvent e = new SimpleEvent(MainActivity.this);
 
-    LinearLayoutManager manager = new LinearLayoutManager(MainActivity.this);
-    rv.setLayoutManager(manager);
+    fm = getSupportFragmentManager();
+
+    e.set(view -> {
+      FragmentTransaction ft = fm.beginTransaction();
+      ft.replace(R.id.init_layout, new HomeFragment());
+      ft.addToBackStack(null);
+      ft.commit();
+    }, R.id.home);
+
+    e.set(view -> {
+      FragmentTransaction fragmentTransaction = fm.beginTransaction();
+      fragmentTransaction.replace(R.id.init_layout, new CartFragment());
+      fragmentTransaction.addToBackStack(null);
+      fragmentTransaction.commit();
+    }, R.id.cart);
+
+    e.set(view -> {
+      FragmentTransaction fragmentTransaction = fm.beginTransaction();
+      fragmentTransaction.replace(R.id.init_layout, new MyFragment());
+      fragmentTransaction.addToBackStack(null);
+      fragmentTransaction.commit();
+    }, R.id.my);
   }
 
 }
