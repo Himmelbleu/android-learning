@@ -67,7 +67,7 @@ public class GoodsAdapter extends RecyclerView.Adapter<GoodsAdapter.ViewHolder> 
     Glide.with(fragment).load(dataSet[position].getImageSrc()).into(holder.getGoodsImage());
     holder.getGoodsTitle().setText(dataSet[position].getTitle());
     holder.getGoodsContent().setText(dataSet[position].getContent());
-    holder.getGoodsPrice().setText(dataSet[position].getPrice() + "");
+    holder.getGoodsPrice().setText("￥" + dataSet[position].getPrice() + "");
   }
 
   @Override
