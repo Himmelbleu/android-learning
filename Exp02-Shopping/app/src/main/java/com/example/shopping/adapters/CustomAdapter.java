@@ -26,7 +26,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
       super(view);
       // Define click listener for the ViewHolder's View
 
-      textView = (TextView) view.findViewById(R.id.textView);
+      textView = (TextView) view.findViewById(R.id.goods_price);
     }
 
     public TextView getTextView() {
@@ -50,7 +50,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
   public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
     // Create a new view, which defines the UI of the list item
     View view = LayoutInflater.from(viewGroup.getContext())
-      .inflate(R.layout.text_row_item, viewGroup, false);
+      .inflate(R.layout.goods_item, viewGroup, false);
 
     return new ViewHolder(view);
   }
