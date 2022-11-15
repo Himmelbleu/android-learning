@@ -20,12 +20,6 @@ public class MainActivity extends AppCompatActivity {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
 
-//    RecyclerView rv = findViewById(R.id.recycler_view);
-//    CustomAdapter ca = new CustomAdapter(data);
-//    LinearLayoutManager manager = new LinearLayoutManager(MainActivity.this);
-//    rv.setAdapter(ca);
-//    rv.setLayoutManager(manager);
-
     SimpleEvent e = new SimpleEvent(MainActivity.this);
 
     fm = getSupportFragmentManager();
