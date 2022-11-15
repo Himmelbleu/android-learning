@@ -25,22 +25,33 @@
       <ImageView
         android:id="@+id/goods_img"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
-        app:srcCompat="@drawable/home" />
+        android:layout_height="wrap_content"
+        android:scaleType="fitXY" />
 
       <!--商品名称-->
       <TextView
-        android:id="@+id/goods_content"
+        android:id="@+id/goods_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/goods_img"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginRight="8dp"
-        android:textSize="16sp"
-        android:text="Hello World!Hello World!Hello World!Hello World!"
         android:textAlignment="textStart"
+        android:textSize="16sp"
         android:textStyle="bold" />
+
+      <!--商品描述-->
+      <TextView
+        android:id="@+id/goods_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/goods_title"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginRight="8dp"
+        android:textAlignment="textStart"
+        android:textSize="14sp" />
 
       <!--价格-->
       <TextView
@@ -48,13 +59,17 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/goods_content"
-        android:layout_margin="8dp"
-        android:text="￥69"
-        android:textSize="14sp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
         android:textAlignment="textStart"
         android:textColor="#E45B5B"
+        android:textSize="14sp"
         android:textStyle="bold" />
+
     </RelativeLayout>
+
   </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
