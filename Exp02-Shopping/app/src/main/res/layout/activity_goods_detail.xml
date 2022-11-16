@@ -4,15 +4,118 @@
   xmlns:tools="http://schemas.android.com/tools"
   android:layout_width="match_parent"
   android:layout_height="match_parent"
+  android:background="#EAEAEA"
   tools:context=".GoodsDetailActivity">
 
-  <TextView
-    android:id="@+id/textView"
-    android:layout_width="wrap_content"
+  <fragment
+    android:id="@+id/goods_detail_init_layout"
+    android:name="com.example.shopping.fragments.GoodsDetailFragment"
+    android:layout_width="0dp"
+    android:layout_height="0dp"
+    android:orientation="vertical"
+    app:layout_constraintBottom_toTopOf="@+id/nav_btns_container"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.0"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintVertical_bias="0.0" />
+
+  <LinearLayout
+    android:id="@+id/nav_btns_container"
+    android:layout_width="0dp"
     android:layout_height="wrap_content"
-    android:text="TextView"
+    android:background="@drawable/layout_border"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:paddingTop="6dp"
+    android:paddingBottom="6dp"
     app:layout_constraintBottom_toBottomOf="parent"
     app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.0"
     app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toTopOf="parent" />
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintVertical_bias="1.0">
+
+    <LinearLayout
+      android:id="@+id/nav_home"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_weight="1"
+      android:gravity="center_horizontal"
+      android:orientation="vertical">
+
+      <ImageView
+        android:layout_width="23dp"
+        android:layout_height="23dp"
+        android:layout_marginBottom="5dp"
+        app:srcCompat="@drawable/kefu" />
+
+      <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="客服"
+        android:textSize="13sp" />
+    </LinearLayout>
+
+    <LinearLayout
+      android:id="@+id/nav_cart"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_weight="1"
+      android:gravity="center_horizontal"
+      android:orientation="vertical">
+
+      <ImageView
+        android:layout_width="23dp"
+        android:layout_height="23dp"
+        android:layout_marginBottom="5dp"
+        app:srcCompat="@drawable/shouchang" />
+
+      <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="收藏"
+        android:textSize="13sp" />
+    </LinearLayout>
+
+    <LinearLayout
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_weight="1"
+      android:gravity="center_horizontal"
+      android:orientation="vertical">
+
+      <ImageView
+        android:layout_width="23dp"
+        android:layout_height="23dp"
+        android:layout_marginBottom="5dp"
+        app:srcCompat="@drawable/gouwuche" />
+
+      <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="加入购物车"
+        android:textSize="13sp" />
+    </LinearLayout>
+
+    <LinearLayout
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_weight="1"
+      android:gravity="center_horizontal"
+      android:orientation="vertical">
+
+      <ImageView
+        android:layout_width="23dp"
+        android:layout_height="23dp"
+        android:layout_marginBottom="5dp"
+        app:srcCompat="@drawable/buy" />
+
+      <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="立即购买"
+        android:textSize="13sp" />
+    </LinearLayout>
+  </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

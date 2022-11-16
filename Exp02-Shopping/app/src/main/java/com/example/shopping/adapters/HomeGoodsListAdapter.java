@@ -74,9 +74,9 @@ public class HomeGoodsListAdapter extends RecyclerView.Adapter<HomeGoodsListAdap
 
     holder.itemView.setOnClickListener((view) -> {
       Intent intent = new Intent(fragment.getContext(), GoodsDetailActivity.class);
-      Bundle bd = new Bundle();
-      bd.putSerializable("GoodsItem", dataSet[position]);
-      intent.putExtras(bd);
+      Bundle bundle = new Bundle();
+      bundle.putSerializable("GoodsItem", dataSet[position]);
+      intent.putExtras(bundle);
       fragment.startActivity(intent);
     });
   }

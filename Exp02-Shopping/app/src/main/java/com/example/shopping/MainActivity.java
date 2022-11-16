@@ -24,6 +24,11 @@ public class MainActivity extends AppCompatActivity {
 
     fm = getSupportFragmentManager();
 
+    FragmentTransaction initFt = fm.beginTransaction();
+    initFt.replace(R.id.home_init_layout, new HomeFragment());
+    initFt.addToBackStack(null);
+    initFt.commit();
+
     e.set(view -> {
       FragmentTransaction ft = fm.beginTransaction();
       ft.replace(R.id.home_init_layout, new HomeFragment());
@@ -32,17 +37,17 @@ public class MainActivity extends AppCompatActivity {
     }, R.id.nav_home);
 
     e.set(view -> {
-      FragmentTransaction fragmentTransaction = fm.beginTransaction();
-      fragmentTransaction.replace(R.id.home_init_layout, new CartFragment());
-      fragmentTransaction.addToBackStack(null);
-      fragmentTransaction.commit();
+      FragmentTransaction ft = fm.beginTransaction();
+      ft.replace(R.id.home_init_layout, new CartFragment());
+      ft.addToBackStack(null);
+      ft.commit();
     }, R.id.nav_cart);
 
     e.set(view -> {
-      FragmentTransaction fragmentTransaction = fm.beginTransaction();
-      fragmentTransaction.replace(R.id.home_init_layout, new MyFragment());
-      fragmentTransaction.addToBackStack(null);
-      fragmentTransaction.commit();
+      FragmentTransaction ft = fm.beginTransaction();
+      ft.replace(R.id.home_init_layout, new MyFragment());
+      ft.addToBackStack(null);
+      ft.commit();
     }, R.id.nav_my);
   }
 
