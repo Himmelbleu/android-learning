@@ -13,11 +13,11 @@ import com.youth.banner.adapter.BannerAdapter;
 
 import java.util.List;
 
-public class ImageAdapter extends BannerAdapter<SlideShow, ImageAdapter.BannerViewHolder> {
+public class HomeTopBannerAdapter extends BannerAdapter<SlideShow, HomeTopBannerAdapter.BannerViewHolder> {
 
   private final Fragment fragment;
 
-  public ImageAdapter(List<SlideShow> banners, Fragment fragment) {
+  public HomeTopBannerAdapter(List<SlideShow> banners, Fragment fragment) {
     super(banners);
     this.fragment = fragment;
   }

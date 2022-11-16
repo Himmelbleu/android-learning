@@ -1,6 +1,7 @@
 package com.example.shopping.entities;
 
 public class Goods {
+  private int id;
   private String imageSrc;
   private String title;
   private String content;
@@ -14,6 +15,14 @@ public class Goods {
   }
 
   public Goods() {
+  }
+
+  public int getId() {
+    return id;
+  }
+
+  public void setId(int id) {
+    this.id = id;
   }
 
   public String getImageSrc() {

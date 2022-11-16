@@ -14,7 +14,7 @@ import com.bumptech.glide.Glide;
 import com.example.shopping.R;
 import com.example.shopping.entities.Goods;
 
-public class GoodsAdapter extends RecyclerView.Adapter<GoodsAdapter.ViewHolder> {
+public class HomeGoodsItemsAdapter extends RecyclerView.Adapter<HomeGoodsItemsAdapter.ViewHolder> {
 
   private final Fragment fragment;
   private final Goods[] dataSet;
@@ -50,7 +50,7 @@ public class GoodsAdapter extends RecyclerView.Adapter<GoodsAdapter.ViewHolder> 
     }
   }
 
-  public GoodsAdapter(Goods[] dataSet, Fragment fragment) {
+  public HomeGoodsItemsAdapter(Goods[] dataSet, Fragment fragment) {
     this.dataSet = dataSet;
     this.fragment = fragment;
   }
@@ -58,8 +58,8 @@ public class GoodsAdapter extends RecyclerView.Adapter<GoodsAdapter.ViewHolder> 
   @NonNull
   @Override
   public ViewHolder onCreateViewHolder(ViewGroup group, int type) {
-    View view = LayoutInflater.from(group.getContext()).inflate(R.layout.goods_item, group, false);
-    return new ViewHolder(view);
+    View inflate = LayoutInflater.from(group.getContext()).inflate(R.layout.goods_item, group, false);
+    return new ViewHolder(inflate);
   }
 
   @Override
