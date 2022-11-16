@@ -23,4 +23,6 @@ API 都需要通过 Android 来调用。所以，学习一个通 N 个。
 
 ScrollView、RecycleView、RelatedLayout 等布局和视图的使用方法。Fragment 跳转到 Activity 的技巧。
 
+使用了其他库：Glide、Banner。Glide 用于加载网络图片、Banner 是轮播图的第三方工具库。这两个工具库都来自于 Github 平台。
+
 通过本次实验，进一步熟悉了安卓开发的流程，但目前 App 用的还是死数据，之后结合 litepal 等内置应用的数据库做一个活数据。
