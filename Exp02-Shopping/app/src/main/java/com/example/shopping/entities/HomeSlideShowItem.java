@@ -1,12 +1,14 @@
 package com.example.shopping.entities;
 
-public class SlideShow {
+import java.io.Serializable;
+
+public class HomeSlideShowItem implements Serializable {
   private String url;
 
-  public SlideShow() {
+  public HomeSlideShowItem() {
   }
 
-  public SlideShow(String url) {
+  public HomeSlideShowItem(String url) {
     this.url = url;
   }
 

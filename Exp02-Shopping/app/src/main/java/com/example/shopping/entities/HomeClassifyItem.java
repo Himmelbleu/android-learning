@@ -1,16 +1,18 @@
 package com.example.shopping.entities;
 
-public class HomeClassify {
+import java.io.Serializable;
+
+public class HomeClassifyItem implements Serializable {
 
   private String imageUrl;
   private String label;
 
-  public HomeClassify(String imageUrl, String label) {
+  public HomeClassifyItem(String imageUrl, String label) {
     this.imageUrl = imageUrl;
     this.label = label;
   }
 
-  public HomeClassify() {
+  public HomeClassifyItem() {
   }
 
   public String getImageUrl() {

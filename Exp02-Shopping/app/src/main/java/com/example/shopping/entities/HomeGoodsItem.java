@@ -1,20 +1,22 @@
 package com.example.shopping.entities;
 
-public class Goods {
+import java.io.Serializable;
+
+public class HomeGoodsItem implements Serializable {
   private int id;
   private String imageSrc;
   private String title;
   private String content;
   private int price;
 
-  public Goods(String imageSrc, String title, String content, int price) {
+  public HomeGoodsItem(String imageSrc, String title, String content, int price) {
     this.imageSrc = imageSrc;
     this.title = title;
     this.content = content;
     this.price = price;
   }
 
-  public Goods() {
+  public HomeGoodsItem() {
   }
 
   public int getId() {

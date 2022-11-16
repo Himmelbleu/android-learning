@@ -8,16 +8,16 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.example.shopping.entities.SlideShow;
+import com.example.shopping.entities.HomeSlideShowItem;
 import com.youth.banner.adapter.BannerAdapter;
 
 import java.util.List;
 
-public class HomeTopBannerAdapter extends BannerAdapter<SlideShow, HomeTopBannerAdapter.BannerViewHolder> {
+public class HomeTopSlideShowAdapter extends BannerAdapter<HomeSlideShowItem, HomeTopSlideShowAdapter.BannerViewHolder> {
 
   private final Fragment fragment;
 
-  public HomeTopBannerAdapter(List<SlideShow> banners, Fragment fragment) {
+  public HomeTopSlideShowAdapter(List<HomeSlideShowItem> banners, Fragment fragment) {
     super(banners);
     this.fragment = fragment;
   }
@@ -33,7 +33,7 @@ public class HomeTopBannerAdapter extends BannerAdapter<SlideShow, HomeTopBanner
   }
 
   @Override
-  public void onBindView(BannerViewHolder holder, SlideShow data, int position, int size) {
+  public void onBindView(BannerViewHolder holder, HomeSlideShowItem data, int position, int size) {
     Glide.with(fragment).load(mDatas.get(position).getUrl()).into(holder.imageView);
   }
 

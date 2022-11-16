@@ -1,5 +1,7 @@
 package com.example.shopping.adapters;
 
+import android.content.Intent;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,13 +13,14 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.shopping.GoodsDetailActivity;
 import com.example.shopping.R;
-import com.example.shopping.entities.Goods;
+import com.example.shopping.entities.HomeGoodsItem;
 
-public class HomeGoodsItemsAdapter extends RecyclerView.Adapter<HomeGoodsItemsAdapter.ViewHolder> {
+public class HomeGoodsListAdapter extends RecyclerView.Adapter<HomeGoodsListAdapter.ViewHolder> {
 
   private final Fragment fragment;
-  private final Goods[] dataSet;
+  private final HomeGoodsItem[] dataSet;
 
   public static class ViewHolder extends RecyclerView.ViewHolder {
     private final TextView goodsPrice;
@@ -50,7 +53,7 @@ public class HomeGoodsItemsAdapter extends RecyclerView.Adapter<HomeGoodsItemsAd
     }
   }
 
-  public HomeGoodsItemsAdapter(Goods[] dataSet, Fragment fragment) {
+  public HomeGoodsListAdapter(HomeGoodsItem[] dataSet, Fragment fragment) {
     this.dataSet = dataSet;
     this.fragment = fragment;
   }
@@ -58,7 +61,7 @@ public class HomeGoodsItemsAdapter extends RecyclerView.Adapter<HomeGoodsItemsAd
   @NonNull
   @Override
   public ViewHolder onCreateViewHolder(ViewGroup group, int type) {
-    View inflate = LayoutInflater.from(group.getContext()).inflate(R.layout.goods_item, group, false);
+    View inflate = LayoutInflater.from(group.getContext()).inflate(R.layout.homeslice_goods_item, group, false);
     return new ViewHolder(inflate);
   }
 
@@ -68,6 +71,14 @@ public class HomeGoodsItemsAdapter extends RecyclerView.Adapter<HomeGoodsItemsAd
     holder.getGoodsTitle().setText(dataSet[position].getTitle());
     holder.getGoodsContent().setText(dataSet[position].getContent());
     holder.getGoodsPrice().setText("￥" + dataSet[position].getPrice() + "");
+
+    holder.itemView.setOnClickListener((view) -> {
+      Intent intent = new Intent(fragment.getContext(), GoodsDetailActivity.class);
+      Bundle bd = new Bundle();
+      bd.putSerializable("GoodsItem", dataSet[position]);
+      intent.putExtras(bd);
+      fragment.startActivity(intent);
+    });
   }
 
   @Override
