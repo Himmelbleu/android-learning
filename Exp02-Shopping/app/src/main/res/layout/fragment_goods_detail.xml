@@ -65,7 +65,7 @@
         android:layout_marginTop="10dp"
         android:background="#ffffff"
         android:columnCount="5"
-        android:padding="15dp"
+        android:padding="5dp"
         android:rowCount="2">
 
         <LinearLayout
@@ -74,22 +74,25 @@
           android:layout_rowWeight="1"
           android:layout_columnWeight="1"
           android:gravity="center_horizontal|center_vertical"
-          android:orientation="vertical">
+          android:orientation="vertical"
+          android:padding="5dp">
 
           <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
             android:src="@drawable/cpu" />
 
           <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="CPU" />
+            android:text="CPU"
+            android:textSize="13sp" />
 
           <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="晓龙7" />
+            android:text="晓龙7"
+            android:textSize="12sp" />
 
         </LinearLayout>
 
@@ -99,22 +102,25 @@
           android:layout_rowWeight="1"
           android:layout_columnWeight="1"
           android:gravity="center_horizontal|center_vertical"
-          android:orientation="vertical">
+          android:orientation="vertical"
+          android:padding="5dp">
 
           <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
             android:src="@drawable/shexiangtou" />
 
           <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="摄像头" />
+            android:text="摄像头"
+            android:textSize="13sp" />
 
           <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="5000万像素" />
+            android:text="5000万像素"
+            android:textSize="12sp" />
 
 
         </LinearLayout>
@@ -125,22 +131,25 @@
           android:layout_rowWeight="1"
           android:layout_columnWeight="1"
           android:gravity="center_horizontal|center_vertical"
-          android:orientation="vertical">
+          android:orientation="vertical"
+          android:padding="5dp">
 
           <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
             android:src="@drawable/pingmu" />
 
           <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="屏幕" />
+            android:text="屏幕"
+            android:textSize="13sp" />
 
           <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="6.55英寸" />
+            android:text="6.55英寸"
+            android:textSize="12sp" />
 
         </LinearLayout>
 
@@ -150,22 +159,25 @@
           android:layout_rowWeight="1"
           android:layout_columnWeight="1"
           android:gravity="center_horizontal|center_vertical"
-          android:orientation="vertical">
+          android:orientation="vertical"
+          android:padding="5dp">
 
           <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
             android:src="@drawable/fenbianlv" />
 
           <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="分辨率" />
+            android:text="分辨率"
+            android:textSize="13sp" />
 
           <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="2400x1080" />
+            android:text="2400x1080"
+            android:textSize="12sp" />
 
         </LinearLayout>
 
@@ -175,22 +187,25 @@
           android:layout_rowWeight="1"
           android:layout_columnWeight="1"
           android:gravity="center_horizontal|center_vertical"
-          android:orientation="vertical">
+          android:orientation="vertical"
+          android:padding="5dp">
 
           <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
             android:src="@drawable/neicun" />
 
           <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="内存容量" />
+            android:text="内存容量"
+            android:textSize="13sp" />
 
           <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="12GB" />
+            android:text="12GB"
+            android:textSize="12sp" />
 
         </LinearLayout>
 
@@ -200,22 +215,25 @@
           android:layout_rowWeight="1"
           android:layout_columnWeight="1"
           android:gravity="center_horizontal|center_vertical"
-          android:orientation="vertical">
+          android:orientation="vertical"
+          android:padding="5dp">
 
           <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
             android:src="@drawable/rongliang_1" />
 
           <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="存储容量" />
+            android:text="存储容量"
+            android:textSize="13sp" />
 
           <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="256GB" />
+            android:text="256GB"
+            android:textSize="12sp" />
 
         </LinearLayout>
 
@@ -225,22 +243,25 @@
           android:layout_rowWeight="1"
           android:layout_columnWeight="1"
           android:gravity="center_horizontal|center_vertical"
-          android:orientation="vertical">
+          android:orientation="vertical"
+          android:padding="5dp">
 
           <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
             android:src="@drawable/houdu" />
 
           <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="厚度" />
+            android:text="厚度"
+            android:textSize="13sp" />
 
           <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="7.23mm" />
+            android:text="7.23mm"
+            android:textSize="12sp" />
 
         </LinearLayout>
 
@@ -250,22 +271,25 @@
           android:layout_rowWeight="1"
           android:layout_columnWeight="1"
           android:gravity="center_horizontal|center_vertical"
-          android:orientation="vertical">
+          android:orientation="vertical"
+          android:padding="5dp">
 
           <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
             android:src="@drawable/dianchi" />
 
           <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="待机时间" />
+            android:text="待机时间"
+            android:textSize="13sp" />
 
           <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="4500mAh" />
+            android:text="4500mAh"
+            android:textSize="12sp" />
 
         </LinearLayout>
 
@@ -275,22 +299,25 @@
           android:layout_rowWeight="1"
           android:layout_columnWeight="1"
           android:gravity="center_horizontal|center_vertical"
-          android:orientation="vertical">
+          android:orientation="vertical"
+          android:padding="5dp">
 
           <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
             android:src="@drawable/wangluo" />
 
           <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="网络" />
+            android:text="网络"
+            android:textSize="13sp" />
 
           <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="5G全网通" />
+            android:text="5G全网通"
+            android:textSize="12sp" />
 
         </LinearLayout>
 
@@ -300,22 +327,25 @@
           android:layout_rowWeight="1"
           android:layout_columnWeight="1"
           android:gravity="center_horizontal|center_vertical"
-          android:orientation="vertical">
+          android:orientation="vertical"
+          android:padding="5dp">
 
           <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
             android:src="@drawable/moshi" />
 
           <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="模式" />
+            android:text="模式"
+            android:textSize="13sp" />
 
           <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="双卡双待" />
+            android:text="双卡双待"
+            android:textSize="12sp" />
 
         </LinearLayout>
       </GridLayout>

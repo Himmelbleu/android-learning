@@ -82,6 +82,7 @@
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_weight="1"
+      android:background="@drawable/style_shape_cart"
       android:gravity="center_horizontal"
       android:orientation="vertical">
 
@@ -99,6 +100,7 @@
     </LinearLayout>
 
     <LinearLayout
+      android:background="@drawable/style_shape_buy"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_weight="1"

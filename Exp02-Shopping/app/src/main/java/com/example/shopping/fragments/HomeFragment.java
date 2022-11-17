@@ -34,6 +34,7 @@ public class HomeFragment extends Fragment {
   private final ArrayList<HomeSlideShowItem> banners;
   private final HomeClassifyItem[] homeClassifies;
 
+  // 初始化数据
   public HomeFragment() {
     banners = new ArrayList<>();
     banners.add(new HomeSlideShowItem("https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/1f28377c4236841c7294ae68c88e5af6.jpg?w=2452&h=920"));
