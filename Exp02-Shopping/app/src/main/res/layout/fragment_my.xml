@@ -8,7 +8,8 @@
   <TextView
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:text="My Fragment"
-    android:textColor="@color/purple_500" />
+    android:gravity="center_vertical|center_horizontal"
+    android:text="我的 Fragment"
+    android:textSize="40sp" />
 
 </FrameLayout>
