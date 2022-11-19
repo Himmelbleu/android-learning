@@ -9,7 +9,6 @@
 
   <androidx.fragment.app.FragmentContainerView
     android:id="@+id/fragment_container_view"
-    android:name="com.example.chap04.IndexFragment"
     android:layout_width="match_parent"
     android:layout_height="200dp"
     android:layout_marginBottom="531dp"
