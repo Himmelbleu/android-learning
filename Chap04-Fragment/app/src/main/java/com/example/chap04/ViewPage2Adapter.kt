@@ -20,4 +20,6 @@ class ViewPage2Adapter(fragmentActivity: FragmentActivity, fragments: List<Fragm
     return fragments[position]
   }
 
+
+
 }

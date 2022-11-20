@@ -2,6 +2,7 @@ package com.example.chap04
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.TextView
 import androidx.viewpager2.widget.ViewPager2
 
@@ -11,36 +12,33 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
     super.onCreate(savedInstanceState)
 
     if (savedInstanceState == null) {
-
-      val viewPager = findViewById<ViewPager2>(R.id.view_pager2)
+      val pager = findViewById<ViewPager2>(R.id.view_pager2)
+      val navBars = listOf<TextView>(findViewById(R.id.nav_index), findViewById(R.id.nav_dynamic), findViewById(R.id.nav_person))
       val fragments = listOf(IndexFragment(), DynamicFragment(), PersonFragment())
-      viewPager.adapter = ViewPage2Adapter(this, fragments)
+      pager.adapter = ViewPage2Adapter(this, fragments)
 
-      findViewById<TextView>(R.id.nav_index).setOnClickListener {
-//        supportFragmentManager
-//          .beginTransaction()
-//          .setReorderingAllowed(true)
-//          .replace(R.id.fragment_container_view, IndexFragment().javaClass, null)
-//          .commit()
+      var lastPosition = 0
+      pager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
+        override fun onPageSelected(currPosition: Int) {
+          navBars[lastPosition].setBackgroundResource(R.color.white)
+          navBars[currPosition].setBackgroundResource(R.color.nav_selected)
+          lastPosition = currPosition
+        }
+      })
+
+      navBars[0].setOnClickListener {
+        Log.d("Test", pager.currentItem.toString())
+        pager.currentItem = 0
       }
 
-      findViewById<TextView>(R.id.nav_dynamic).setOnClickListener {
-//        supportFragmentManager
-//          .beginTransaction()
-//          .setReorderingAllowed(true)
-//          .replace(R.id.fragment_container_view, DynamicFragment().javaClass, null)
-//          .commit()
+      navBars[1].setOnClickListener {
+        pager.currentItem = 1
       }
 
-      findViewById<TextView>(R.id.nav_person).setOnClickListener {
-//        supportFragmentManager
-//          .beginTransaction()
-//          .setReorderingAllowed(true)
-//          .replace(R.id.fragment_container_view, PersonFragment().javaClass, null)
-//          .commit()
+      navBars[2].setOnClickListener {
+        pager.currentItem = 2
       }
     }
-
   }
 
 }
