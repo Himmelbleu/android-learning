@@ -9,21 +9,22 @@ import java.util.List;
 
 public class TabBarFragmentAdapter extends FragmentStateAdapter {
 
-  private final List<Fragment> list;
+  private final List<Fragment> fragments;
 
   public TabBarFragmentAdapter(@NonNull FragmentActivity fragmentActivity, List<Fragment> list) {
     super(fragmentActivity);
-    this.list = list;
+    this.fragments = list;
   }
 
   @NonNull
   @Override
   public Fragment createFragment(int position) {
-    return list.get(position);
+    return fragments.get(position);
   }
 
   @Override
   public int getItemCount() {
-    return list.size();
+    return fragments.size();
   }
+
 }
