@@ -12,9 +12,9 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
     super.onCreate(savedInstanceState)
 
     if (savedInstanceState == null) {
-      val pager = findViewById<ViewPager2>(R.id.view_pager2)
       val navBars = listOf<TextView>(findViewById(R.id.nav_index), findViewById(R.id.nav_dynamic), findViewById(R.id.nav_person))
       val fragments = listOf(IndexFragment(), DynamicFragment(), PersonFragment())
+      val pager = findViewById<ViewPager2>(R.id.view_pager2)
       pager.adapter = ViewPage2Adapter(this, fragments)
 
       var lastPosition = 0
