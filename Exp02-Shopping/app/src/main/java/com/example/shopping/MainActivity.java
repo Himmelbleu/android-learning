@@ -1,54 +1,61 @@
 package com.example.shopping;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
+import androidx.fragment.app.Fragment;
+import androidx.viewpager2.widget.ViewPager2;
 
 import android.os.Bundle;
 
+import com.example.shopping.adapters.TabBarFragmentAdapter;
 import com.example.shopping.fragments.CartFragment;
 import com.example.shopping.fragments.HomeFragment;
 import com.example.shopping.fragments.MyFragment;
 import com.example.shopping.utils.SimpleEvent;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class MainActivity extends AppCompatActivity {
 
-  private FragmentManager fm;
+  private ViewPager2 viewPager2;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
 
-    SimpleEvent e = new SimpleEvent(MainActivity.this);
+    if (savedInstanceState == null) {
+      viewPager2 = findViewById(R.id.view_pager2);
+      SimpleEvent event = new SimpleEvent(MainActivity.this);
+      List<Fragment> fragments = new ArrayList<>();
+      fragments.add(new HomeFragment());
+      fragments.add(new CartFragment());
+      fragments.add(new MyFragment());
 
-    fm = getSupportFragmentManager();
+      viewPager2.setAdapter(new TabBarFragmentAdapter(MainActivity.this, fragments));
+      findViewById(R.id.nav_home).setBackgroundResource(R.color.selected);
 
-    FragmentTransaction initFt = fm.beginTransaction();
-    initFt.replace(R.id.home_init_layout, new HomeFragment());
-    initFt.addToBackStack(null);
-    initFt.commit();
+      event.set(view -> {
+        findViewById(R.id.nav_cart).setBackgroundResource(R.color.white);
+        findViewById(R.id.nav_my).setBackgroundResource(R.color.white);
+        viewPager2.setCurrentItem(0);
+        findViewById(R.id.nav_home).setBackgroundResource(R.color.selected);
+      }, R.id.nav_home);
 
-    e.set(view -> {
-      FragmentTransaction ft = fm.beginTransaction();
-      ft.replace(R.id.home_init_layout, new HomeFragment());
-      ft.addToBackStack(null);
-      ft.commit();
-    }, R.id.nav_home);
+      event.set(view -> {
+        findViewById(R.id.nav_home).setBackgroundResource(R.color.white);
+        findViewById(R.id.nav_my).setBackgroundResource(R.color.white);
+        viewPager2.setCurrentItem(1);
+        findViewById(R.id.nav_cart).setBackgroundResource(R.color.selected);
+      }, R.id.nav_cart);
 
-    e.set(view -> {
-      FragmentTransaction ft = fm.beginTransaction();
-      ft.replace(R.id.home_init_layout, new CartFragment());
-      ft.addToBackStack(null);
-      ft.commit();
-    }, R.id.nav_cart);
-
-    e.set(view -> {
-      FragmentTransaction ft = fm.beginTransaction();
-      ft.replace(R.id.home_init_layout, new MyFragment());
-      ft.addToBackStack(null);
-      ft.commit();
-    }, R.id.nav_my);
+      event.set(view -> {
+        findViewById(R.id.nav_cart).setBackgroundResource(R.color.white);
+        findViewById(R.id.nav_home).setBackgroundResource(R.color.white);
+        viewPager2.setCurrentItem(2);
+        findViewById(R.id.nav_my).setBackgroundResource(R.color.selected);
+      }, R.id.nav_my);
+    }
   }
 
 }
