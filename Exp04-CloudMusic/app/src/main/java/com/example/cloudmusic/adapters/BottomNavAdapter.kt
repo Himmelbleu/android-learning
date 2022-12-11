@@ -8,7 +8,6 @@ class BottomNavAdapter(
   fragmentActivity: FragmentActivity,
   private var fragments: List<Fragment>
 ) : FragmentStateAdapter(fragmentActivity) {
-
   override fun createFragment(position: Int): Fragment {
     return fragments[position]
   }

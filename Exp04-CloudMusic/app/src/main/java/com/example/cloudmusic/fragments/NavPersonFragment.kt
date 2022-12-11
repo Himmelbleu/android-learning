@@ -8,9 +8,7 @@ import androidx.fragment.app.Fragment
 import com.example.cloudmusic.R
 
 class NavPersonFragment : Fragment() {
-
   override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
     return inflater.inflate(R.layout.fragment_nav_person, container, false);
   }
-
 }
