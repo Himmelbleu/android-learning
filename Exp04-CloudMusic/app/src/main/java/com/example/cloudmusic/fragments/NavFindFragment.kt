@@ -5,7 +5,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.example.cloudmusic.adapters.RecoSongsAdapter
 import com.example.cloudmusic.adapters.SlideShowAdapter
+import com.example.cloudmusic.beans.RecoSongsItem
 import com.example.cloudmusic.beans.SlideShowItem
 import com.example.cloudmusic.databinding.FragmentNavFindBinding
 import com.youth.banner.indicator.CircleIndicator
@@ -18,6 +22,7 @@ class NavFindFragment : Fragment() {
     if (savedInstanceState == null) {
       createBanner()
     }
+    createRecoSongs()
     return binding.root
   }
 
@@ -25,10 +30,27 @@ class NavFindFragment : Fragment() {
     binding.banner.addBannerLifecycleObserver(this).setAdapter(
       SlideShowAdapter(
         listOf(
-          SlideShowItem("https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/1f28377c4236841c7294ae68c88e5af6.jpg?w=2452&h=920"),
-          SlideShowItem("https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/e89200db5385ff3d99fb45cc342fcd14.jpg?thumb=1&w=1533&h=575&f=webp&q=90")
+          SlideShowItem("https://p1.music.126.net/HmOx_IuQqffXCloVq2YzTA==/109951168139555566.jpg?imageView&quality=89"),
+          SlideShowItem("https://p1.music.126.net/d7co9jgMW99Vwt3fsdzhZQ==/109951168139553832.jpg?imageView&quality=89"),
+          SlideShowItem("https://p1.music.126.net/UuSd71D8bonCDUJYdp7avQ==/109951168139528689.jpg?imageView&quality=89")
         ), this
       )
     ).indicator = CircleIndicator(context);
+  }
+
+  private fun createRecoSongs() {
+    binding.recoSongsRecyclerView.layoutManager = LinearLayoutManager(requireContext(), RecyclerView.HORIZONTAL, true)
+    binding.recoSongsRecyclerView.adapter = RecoSongsAdapter(
+      listOf(
+        RecoSongsItem("https://p2.music.126.net/SyerXTn8Np6646rabTS8EA==/109951163046604560.jpg?param=130y130", "Funny Logic"),
+        RecoSongsItem("https://p2.music.126.net/SyerXTn8Np6646rabTS8EA==/109951163046604560.jpg?param=130y130", "Funny Logic"),
+        RecoSongsItem("https://p2.music.126.net/SyerXTn8Np6646rabTS8EA==/109951163046604560.jpg?param=130y130", "Funny Logic"),
+        RecoSongsItem("https://p2.music.126.net/SyerXTn8Np6646rabTS8EA==/109951163046604560.jpg?param=130y130", "Funny Logic"),
+        RecoSongsItem("https://p2.music.126.net/SyerXTn8Np6646rabTS8EA==/109951163046604560.jpg?param=130y130", "Funny Logic"),
+        RecoSongsItem("https://p2.music.126.net/SyerXTn8Np6646rabTS8EA==/109951163046604560.jpg?param=130y130", "Funny Logic"),
+        RecoSongsItem("https://p2.music.126.net/SyerXTn8Np6646rabTS8EA==/109951163046604560.jpg?param=130y130", "Funny Logic"),
+        RecoSongsItem("https://p2.music.126.net/SyerXTn8Np6646rabTS8EA==/109951163046604560.jpg?param=130y130", "Funny Logic"),
+      ), requireContext()
+    )
   }
 }

@@ -30,6 +30,22 @@
         android:layout_height="150dp"
         app:banner_radius="8dp" />
 
+      <HorizontalScrollView
+        android:id="@+id/reco_songs_scroll_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/banner"
+        android:fillViewport="true"
+        android:scrollbars="none">
+
+        <androidx.recyclerview.widget.RecyclerView
+          android:id="@+id/reco_songs_recycler_view"
+          android:layout_width="match_parent"
+          android:layout_height="match_parent" />
+
+      </HorizontalScrollView>
+
     </RelativeLayout>
+
   </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
