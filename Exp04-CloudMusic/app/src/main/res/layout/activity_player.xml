@@ -6,6 +6,23 @@
   android:layout_height="match_parent"
   tools:context=".PlayerActivity">
 
+  <RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent">
+
+    <ImageView
+      android:id="@+id/bg"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:scaleType="centerCrop"
+      app:srcCompat="@mipmap/ic_launcher" />
+
+  </RelativeLayout>
+
   <LinearLayout
     android:id="@+id/header"
     android:layout_width="match_parent"
@@ -21,7 +38,7 @@
     android:id="@+id/middle"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center_vertical|center_horizontal"
+    android:gravity="center_horizontal"
     android:orientation="vertical"
     app:layout_constraintBottom_toTopOf="@+id/bottom"
     app:layout_constraintEnd_toEndOf="parent"
@@ -32,31 +49,85 @@
       android:id="@+id/text"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
+      android:layout_marginTop="20dp"
       android:layout_marginBottom="20dp"
       android:text="歌曲名称"
-      android:textSize="22sp" />
+      android:textColor="#202020"
+      android:textSize="26sp" />
 
     <TextView
       android:id="@+id/author"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      android:layout_marginBottom="50dp"
-      android:text="歌手" />
+      android:layout_marginBottom="80dp"
+      android:text="歌手"
+      android:textColor="#202020"
+      android:textSize="18sp" />
 
-    <ImageView
-      android:id="@+id/surface"
-      android:layout_width="160dp"
-      android:layout_height="160dp"
-      app:srcCompat="@mipmap/ic_launcher" />
+    <RelativeLayout
+      android:layout_width="300dp"
+      android:layout_height="300dp">
+
+      <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal|center_vertical"
+        android:orientation="vertical">
+
+        <ImageView
+          android:layout_width="290dp"
+          android:layout_height="290dp"
+          android:background="@drawable/style_player_surface" />
+      </LinearLayout>
+
+      <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal|center_vertical"
+        android:orientation="vertical">
+
+        <ImageView
+          android:id="@+id/surface"
+          android:layout_width="190dp"
+          android:layout_height="190dp"
+          app:srcCompat="@mipmap/ic_launcher" />
+      </LinearLayout>
+
+    </RelativeLayout>
+
   </LinearLayout>
 
   <LinearLayout
     android:id="@+id/bottom"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:gravity="center_horizontal|center_vertical"
     android:orientation="horizontal"
+    android:paddingBottom="20dp"
     app:layout_constraintBottom_toBottomOf="parent"
     app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toStartOf="parent" />
+    app:layout_constraintStart_toStartOf="parent">
+
+    <ImageView
+      android:id="@+id/last_btn"
+      android:layout_width="30dp"
+      android:layout_height="30dp"
+      android:src="@drawable/ic_arrow_last" />
+
+    <ImageView
+      android:id="@+id/ctrl_btn"
+      android:layout_width="55dp"
+      android:layout_height="55dp"
+      android:layout_marginLeft="80dp"
+      android:layout_marginRight="80dp"
+      android:src="@drawable/ic_play_circle" />
+
+    <ImageView
+      android:id="@+id/next_btn"
+      android:layout_width="30dp"
+      android:layout_height="30dp"
+      android:src="@drawable/ic_arrow_next" />
+
+  </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
