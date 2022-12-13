@@ -8,37 +8,38 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.cloudmusic.adapters.CustSongsAdapter
+import com.example.cloudmusic.adapters.CustSongAdapter
 import com.example.cloudmusic.adapters.RecoSongsAdapter
-import com.example.cloudmusic.adapters.SlideShowAdapter
-import com.example.cloudmusic.beans.CustSongsItem
-import com.example.cloudmusic.beans.RecoSongsItem
-import com.example.cloudmusic.beans.SlideShowItem
+import com.example.cloudmusic.adapters.TrottingAdapter
+import com.example.cloudmusic.beans.Song
+import com.example.cloudmusic.beans.Songs
+import com.example.cloudmusic.beans.Trotting
 import com.example.cloudmusic.databinding.FragmentNavFindBinding
 import com.youth.banner.indicator.CircleIndicator
+import org.litepal.crud.DataSupport
 
 class NavFindFragment : Fragment() {
   private lateinit var binding: FragmentNavFindBinding
   private lateinit var recoSongsAdapter: RecoSongsAdapter
-  private lateinit var custSongsAdapter: CustSongsAdapter
+  private lateinit var custSongAdapter: CustSongAdapter
 
   override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
     binding = FragmentNavFindBinding.inflate(layoutInflater, container, false)
     if (savedInstanceState == null) {
-      createBanner()
+      createTrotting()
       createRecoSongs()
-      createCustSongs()
+      createCustSong()
     }
     return binding.root
   }
 
-  private fun createBanner() {
+  private fun createTrotting() {
     binding.banner.addBannerLifecycleObserver(this).setAdapter(
-      SlideShowAdapter(
+      TrottingAdapter(
         listOf(
-          SlideShowItem("https://p1.music.126.net/HmOx_IuQqffXCloVq2YzTA==/109951168139555566.jpg?imageView&quality=89"),
-          SlideShowItem("https://p1.music.126.net/d7co9jgMW99Vwt3fsdzhZQ==/109951168139553832.jpg?imageView&quality=89"),
-          SlideShowItem("https://p1.music.126.net/UuSd71D8bonCDUJYdp7avQ==/109951168139528689.jpg?imageView&quality=89")
+          Trotting("https://p1.music.126.net/HmOx_IuQqffXCloVq2YzTA==/109951168139555566.jpg?imageView&quality=89"),
+          Trotting("https://p1.music.126.net/d7co9jgMW99Vwt3fsdzhZQ==/109951168139553832.jpg?imageView&quality=89"),
+          Trotting("https://p1.music.126.net/UuSd71D8bonCDUJYdp7avQ==/109951168139528689.jpg?imageView&quality=89")
         ), this
       )
     ).indicator = CircleIndicator(context)
@@ -46,32 +47,19 @@ class NavFindFragment : Fragment() {
 
   private fun createRecoSongs() {
     binding.recoSongsRecyclerView.layoutManager = LinearLayoutManager(requireContext(), RecyclerView.HORIZONTAL, false)
+    val sources = DataSupport.findAll(Songs().javaClass) as ArrayList<Songs>
     recoSongsAdapter = RecoSongsAdapter(
-      arrayListOf(
-        RecoSongsItem("https://p2.music.126.net/SyerXTn8Np6646rabTS8EA==/109951163046604560.jpg?param=130y130", "Funny Logic"),
-        RecoSongsItem("https://p2.music.126.net/SyerXTn8Np6646rabTS8EA==/109951163046604560.jpg?param=130y130", "Funny Logic"),
-        RecoSongsItem("https://p2.music.126.net/SyerXTn8Np6646rabTS8EA==/109951163046604560.jpg?param=130y130", "Funny Logic"),
-        RecoSongsItem("https://p2.music.126.net/SyerXTn8Np6646rabTS8EA==/109951163046604560.jpg?param=130y130", "Funny Logic"),
-      ), requireContext()
+      sources, requireContext()
     )
     binding.recoSongsRecyclerView.adapter = recoSongsAdapter
   }
 
-  private fun createCustSongs() {
+  private fun createCustSong() {
     binding.custSongsRecyclerView.layoutManager = GridLayoutManager(requireContext(), 3, RecyclerView.HORIZONTAL, false)
-    custSongsAdapter = CustSongsAdapter(
-      arrayListOf(
-        CustSongsItem("https://p2.music.126.net/SyerXTn8Np6646rabTS8EA==/109951163046604560.jpg?param=130y130", "Funny Logic1", "Author"),
-        CustSongsItem("https://p2.music.126.net/SyerXTn8Np6646rabTS8EA==/109951163046604560.jpg?param=130y130", "Funny Logic2", "Author"),
-        CustSongsItem("https://p2.music.126.net/SyerXTn8Np6646rabTS8EA==/109951163046604560.jpg?param=130y130", "Funny Logic3", "Author"),
-        CustSongsItem("https://p2.music.126.net/SyerXTn8Np6646rabTS8EA==/109951163046604560.jpg?param=130y130", "Funny Logic4", "Author"),
-        CustSongsItem("https://p2.music.126.net/SyerXTn8Np6646rabTS8EA==/109951163046604560.jpg?param=130y130", "Funny Logic5", "Author"),
-        CustSongsItem("https://p2.music.126.net/SyerXTn8Np6646rabTS8EA==/109951163046604560.jpg?param=130y130", "Funny Logic6", "Author"),
-        CustSongsItem("https://p2.music.126.net/SyerXTn8Np6646rabTS8EA==/109951163046604560.jpg?param=130y130", "Funny Logic7", "Author"),
-        CustSongsItem("https://p2.music.126.net/SyerXTn8Np6646rabTS8EA==/109951163046604560.jpg?param=130y130", "Funny Logic8", "Author"),
-        CustSongsItem("https://p2.music.126.net/SyerXTn8Np6646rabTS8EA==/109951163046604560.jpg?param=130y130", "Funny Logic9", "Author"),
-      ), requireContext()
+    val sources = DataSupport.findAll(Song().javaClass) as ArrayList<Song>
+    custSongAdapter = CustSongAdapter(
+      sources, requireContext()
     )
-    binding.custSongsRecyclerView.adapter = custSongsAdapter
+    binding.custSongsRecyclerView.adapter = custSongAdapter
   }
 }
