@@ -3,9 +3,13 @@
   android:layout_width="match_parent"
   android:layout_height="match_parent">
 
-  <TextView
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:text="Person Fragment" />
+  <!-- 判断 prefer，是否存储了用户的信息，否则提示没有登录 -->
+  <!-- 登录成功之后保存用户的必要数据到 prefer 中 -->
 
+
+  <!-- 点击喜欢按钮，插入该用户的id和音乐id到数据库中，喜欢和音乐是一对一关系 -->
+  <!-- 中间只做一个喜欢的功能，点击之后跳转到 activity，查询数据库 -->
+
+  <!-- 已听过的 -->
+  <!-- 一一查询数据库（随便做了） -->
 </androidx.constraintlayout.widget.ConstraintLayout>
