@@ -25,11 +25,13 @@ class NavFindFragment : Fragment() {
 
   override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
     binding = FragmentNavFindBinding.inflate(layoutInflater, container, false)
+
     if (savedInstanceState == null) {
       createTrotting()
       createRecoSongs()
       createCustSong()
     }
+
     return binding.root
   }
 

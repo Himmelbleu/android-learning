@@ -1,11 +1,13 @@
 package com.example.cloudmusic
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import com.example.cloudmusic.adapters.BottomNavAdapter
+import com.example.cloudmusic.beans.User
 import com.example.cloudmusic.databinding.ActivityMainBinding
 import com.example.cloudmusic.fragments.NavFindFragment
 import com.example.cloudmusic.fragments.NavPersonFragment
+import org.litepal.crud.DataSupport
 
 class MainActivity : AppCompatActivity() {
   private lateinit var binding: ActivityMainBinding

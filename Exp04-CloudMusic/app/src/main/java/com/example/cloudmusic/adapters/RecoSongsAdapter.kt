@@ -2,6 +2,8 @@ package com.example.cloudmusic.adapters
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.content.Intent
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,6 +14,7 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.bumptech.glide.request.RequestOptions
 import com.example.cloudmusic.R
+import com.example.cloudmusic.SongsActivity
 import com.example.cloudmusic.beans.Songs
 
 class RecoSongsAdapter(
@@ -27,6 +30,14 @@ class RecoSongsAdapter(
     val options = RequestOptions.bitmapTransform(RoundedCorners(30))
     Glide.with(content).load(sources[position].surface).apply(options).into(holder.surfaceView)
     holder.textView.text = sources[position].text
+
+    holder.itemView.setOnClickListener {
+      val intent = Intent(content, SongsActivity().javaClass)
+      val bundle = Bundle()
+      bundle.putSerializable("songs", sources[position])
+      intent.putExtras(bundle)
+      content.startActivity(intent)
+    }
   }
 
   override fun getItemCount(): Int {

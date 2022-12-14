@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.resource.bitmap.CircleCrop;
@@ -24,11 +25,11 @@ import jp.wasabeef.glide.transformations.BlurTransformation;
 
 public class PlayerActivity extends AppCompatActivity {
 
-  private final MediaPlayer player = new MediaPlayer();
   private ActivityPlayerBinding binding;
+  private final MediaPlayer player = new MediaPlayer();
   private boolean isDown = false;
-  private final ArrayList<String> cacheSongs = new ArrayList<>();
-  private int songIndex = 0;
+  private final ArrayList<String> caching = new ArrayList<>();
+  private int index = 0;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -36,34 +37,40 @@ public class PlayerActivity extends AppCompatActivity {
     binding = ActivityPlayerBinding.inflate(getLayoutInflater());
     setContentView(binding.getRoot());
 
-    Song song = (Song) getIntent().getExtras().getSerializable("song");
+    if (savedInstanceState == null) {
+      Song song = (Song) getIntent().getExtras().getSerializable("song");
 
-    loadUI(song);
-    loadPlayer(song);
-    cacheSongs(song);
+      renderUI(song);
+      renderAudio(song);
+      cacheData(song);
 
-    binding.ctrlBtn.setOnClickListener(v -> {
-      if (isDown) {
-        player.pause();
-        binding.ctrlBtn.setImageResource(R.drawable.ic_play_circle);
-        isDown = false;
-      } else {
-        player.start();
-        binding.ctrlBtn.setImageResource(R.drawable.ic_pause_circle);
-        isDown = true;
-      }
-    });
+      binding.ctrlBtn.setOnClickListener(v -> {
+        renderCtlUI();
+      });
 
-    binding.lastBtn.setOnClickListener(v -> {
-      switchLastSong();
-    });
+      binding.lastBtn.setOnClickListener(v -> {
+        toggleLastSong();
+      });
 
-    binding.nextBtn.setOnClickListener(v -> {
-      switchNextSong();
-    });
+      binding.nextBtn.setOnClickListener(v -> {
+        toggleNextSong();
+      });
+    }
   }
 
-  private void loadUI(Song song) {
+  private void renderCtlUI() {
+    if (isDown) {
+      player.pause();
+      binding.ctrlBtn.setImageResource(R.drawable.ic_play_circle);
+      isDown = false;
+    } else {
+      player.start();
+      binding.ctrlBtn.setImageResource(R.drawable.ic_pause_circle);
+      isDown = true;
+    }
+  }
+
+  private void renderUI(Song song) {
     binding.text.setText(song.getText());
     binding.author.setText(song.getAuthor());
     Glide.with(this).load(song.getSurface())
@@ -74,7 +81,7 @@ public class PlayerActivity extends AppCompatActivity {
       .into(binding.bg);
   }
 
-  private void loadPlayer(Song song) {
+  private void renderAudio(Song song) {
     try {
       player.setDataSource(song.getUrl());
       player.prepareAsync();
@@ -87,39 +94,34 @@ public class PlayerActivity extends AppCompatActivity {
     }
   }
 
-  private void cacheSongs(Song song) {
+  private void cacheData(Song song) {
     SharedPreferences prefs = getSharedPreferences("songCache", 0);
-    String text = prefs.getString(song.getText(), null);
-    if (TextUtils.isEmpty(text)) prefs.edit().putString(song.getText(), song.getText()).apply();
+    if (TextUtils.isEmpty(prefs.getString(song.getText(), null)))
+      prefs.edit().putString(song.getText(), song.getText()).apply();
     Map<String, ?> maps = prefs.getAll();
-    cacheSongs.clear();
-    for (String key : maps.keySet()) {
-      cacheSongs.add(String.valueOf(maps.get(key)));
-    }
+    caching.clear();
+    for (String key : maps.keySet()) caching.add(String.valueOf(maps.get(key)));
   }
 
-  private void switchSong() {
-    List<Song> songs = DataSupport.where("text = ?", cacheSongs.get(songIndex)).find(Song.class);
+  private void toggleSong() {
+    List<Song> songs = DataSupport.where("text = ?", caching.get(index)).find(Song.class);
     player.stop();
     player.seekTo(0);
-    loadPlayer(songs.get(0));
-    loadUI(songs.get(0));
+    renderAudio(songs.get(0));
+    renderUI(songs.get(0));
+    renderCtlUI();
   }
 
-  private void switchLastSong() {
-    songIndex--;
-    if (songIndex < 0) {
-      songIndex = cacheSongs.size() - 1;
-    }
-    switchSong();
+  private void toggleLastSong() {
+    renderCtlUI();
+    if (--index < 0) index = caching.size() - 1;
+    toggleSong();
   }
 
-  private void switchNextSong() {
-    songIndex++;
-    if (songIndex >= cacheSongs.size()) {
-      songIndex = 0;
-    }
-    switchSong();
+  private void toggleNextSong() {
+    renderCtlUI();
+    if (++index >= caching.size()) index = 0;
+    toggleSong();
   }
 
   @Override
