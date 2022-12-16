@@ -16,6 +16,61 @@
 
 涉及到的实体类有：Song、Songs、User。Songs 与 Song 是多对一的关系。Songs 是歌单，歌单下面有许多的歌曲对象。
 
+请运行下面的歌曲数据源代码，放在 MainActivity 中执行一次即可：
+
+```kotlin
+Song(
+  "https://p2.music.126.net/z_Mf8OfATNV2O-4V0eub1Q==/109951164255539403.jpg?param=130y130",
+  "我家里有蜘蛛！！！",
+  "warma",
+  "http://m10.music.126.net/20221216100643/f81b3679dd5977d35a69a266c03d5410/ymusic/535f/5308/0e08/d50677485edb749982859b3c5e26892a.mp3"
+).save()
+
+Song(
+  "https://p2.music.126.net/DwWVQH2lsnqJEpeUiNaCZA==/109951164416460276.jpg?param=130y130",
+  "I really ∞",
+  "warma",
+  "http://m10.music.126.net/20221216100615/c35e1a05c534d893c1652185da4f4d9c/ymusic/0452/070f/0f5d/38eafc068f0e425b2a88877846535d21.mp3"
+).save()
+
+Song(
+  "https://p2.music.126.net/Mw7z4vn0EMrWlitsiYgzPQ==/109951163606870393.jpg?param=130y130",
+  "Everything's Alright",
+  "Hanser",
+  "http://m10.music.126.net/20221216100544/179c376d4a66cebf5c75e72276f5185f/ymusic/obj/w5zDlMODwrDDiGjCn8Ky/3192845784/fc9d/0f37/ce40/09089c635ade9fcee5c64bc456b6ec91.mp3"
+).save()
+
+Song(
+  "https://p1.music.126.net/o7VzAqAtOoSr14Kbq2O-uA==/7834020348009169.jpg?param=130y130",
+  "PEKO PEKO PEKO",
+  "Dyako",
+  "http://m10.music.126.net/20221216100415/d56119f612454a630e778a207325eb9f/ymusic/0e52/030e/565b/988ed4ee024d921187dca197dbdc003e.mp3"
+).save()
+
+Song(
+  "https://p1.music.126.net/o7VzAqAtOoSr14Kbq2O-uA==/7834020348009169.jpg?param=130y130",
+  "兎田ぺこらの世界",
+  "Dyako",
+  "http://m701.music.126.net/20221216100339/2a6f0e2547eab927226889f6521df1de/jdymusic/obj/w5zDlMODwrDDiGjCn8Ky/2030786366/adcd/e437/1a07/eeb4dc1da6afe349696c23ba4163fa4e.mp3"
+).save()
+```
+
+下面代码同上：
+
+```kotlin
+Songs(
+  "【ACG】盘点2022年百首好听的动漫歌曲",
+  "https://p4.music.126.net/gHt8N6_q7ZW_QQzRuFGjdA==/109951167919926215.jpg?param=200y200"
+).save()
+
+Songs(
+  "日系治愈 | 微风轻轻起 我好喜欢你",
+  "https://p4.music.126.net/8fbidxSiVOY23qwcHYt6cQ==/109951167557523989.jpg?param=200y200"
+).save()
+```
+
+歌单与歌曲是一对多的关系，Songs 和 Song 产生关系，直接修改 Song 数据表的 songs_id。
+
 ## UI 原型设计
 
 ![](./docs/首页.png)
