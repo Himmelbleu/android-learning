@@ -15,14 +15,20 @@ API 都需要通过 Android 来调用。所以，学习一个通 N 个。
 
 # Exp01-Survey
 
-问卷调查应用，使用了 ViewModel 和 Adapter、ListView 组件等。入门安卓开发的第一步。
+问卷调查应用：使用 ViewModel 和 Adapter、ListView。
 
 # Exp02-Shopping
 
-模仿小米商城的 App。Fragment 对 Activity 进行拆分重组、重用，Intent 显示跳转页面，传递复杂数据 Bundle 对象。
+Fragment 对 Activity 进行拆分重组、重用，Intent 显示跳转页面，传递复杂数据 Bundle 对象。ScrollView、RecycleView、RelatedLayout 等布局和视图的使用方法。Glide 用于加载网络图片、Banner 是轮播图的第三方工具库。这两个工具库都来自于 Github 平台。
 
-ScrollView、RecycleView、RelatedLayout 等布局和视图的使用方法。Fragment 跳转到 Activity 的技巧。
+通过本次实验，进一步熟悉了安卓开发的流程。
 
-使用了其他库：Glide、Banner。Glide 用于加载网络图片、Banner 是轮播图的第三方工具库。这两个工具库都来自于 Github 平台。
+# Exp03-CoolWeather
 
-通过本次实验，进一步熟悉了安卓开发的流程，但目前 App 用的还是死数据，之后结合 litepal 等内置应用的数据库做一个活数据。
+结合 LitePal、SharedPrefernce、OkHttp、Glide 实现的一个天气应用。Activity 、Service、Fragment 技术实现 App。
+
+下拉刷新：SwipeRefreshLayout；抽屉布局：DrawerLayout。
+
+# Exp04-CloudMusic
+
+结合 LitePal、SharedPreference 实现的一个网络音乐播放器。播放媒体使用 MediaPlayer 类进行，简单使用 Kotlin 进行辅助性开发。
