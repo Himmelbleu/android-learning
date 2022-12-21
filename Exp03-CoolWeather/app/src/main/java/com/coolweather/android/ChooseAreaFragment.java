@@ -7,7 +7,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
@@ -44,7 +43,7 @@ public class ChooseAreaFragment extends Fragment {
   private Button backButton;
   private ListView listView;
   private ArrayAdapter<String> adapter;
-  private List<String> dataList = new ArrayList<>();
+  private final List<String> dataList = new ArrayList<>();
 
   private List<Province> provinceList;
   private List<City> cityList;
@@ -66,9 +65,9 @@ public class ChooseAreaFragment extends Fragment {
   }
 
   @Override
-  public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-    super.onActivityCreated(savedInstanceState);
-    listView.setOnItemClickListener((parent, view, position, id) -> {
+  public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+    super.onViewCreated(view, savedInstanceState);
+    listView.setOnItemClickListener((parent, v, position, id) -> {
       if (currentLevel == LEVEL_PROVINCE) {
         selectedProvince = provinceList.get(position);
         queryCities();
@@ -113,7 +112,8 @@ public class ChooseAreaFragment extends Fragment {
       listView.setSelection(0);
       currentLevel = LEVEL_PROVINCE;
     } else {
-      String address = "http://guolin.tech/api/china";
+//      String address = "http://guolin.tech/api/china";
+      String address = "http://10.0.2.2:8080/coolweather/province";
       queryFromServer(address, "province");
     }
   }
@@ -132,7 +132,8 @@ public class ChooseAreaFragment extends Fragment {
       currentLevel = LEVEL_CITY;
     } else {
       int provinceCode = selectedProvince.getProvinceCode();
-      String address = "http://guolin.tech/api/china/" + provinceCode;
+//      String address = "http://guolin.tech/api/china/" + provinceCode;
+      String address = "http://10.0.2.2:8080/coolweather/city?code=" + provinceCode;
       queryFromServer(address, "city");
     }
   }
@@ -152,7 +153,8 @@ public class ChooseAreaFragment extends Fragment {
     } else {
       int provinceCode = selectedProvince.getProvinceCode();
       int cityCode = selectedCity.getCityCode();
-      String address = "http://guolin.tech/api/china/" + provinceCode + "/" + cityCode;
+//      String address = "http://guolin.tech/api/china/" + provinceCode + "/" + cityCode;
+      String address = "http://10.0.2.2:8080/coolweather/county?cCode=" + cityCode;
       queryFromServer(address, "county");
     }
   }
@@ -162,12 +164,9 @@ public class ChooseAreaFragment extends Fragment {
     HttpUtil.sendOkHttpRequest(address, new Callback() {
       @Override
       public void onFailure(Call call, IOException e) {
-        getActivity().runOnUiThread(new Runnable() {
-          @Override
-          public void run() {
-            closeProgressDialog();
-            Toast.makeText(getContext(), "加载失败", Toast.LENGTH_SHORT).show();
-          }
+        requireActivity().runOnUiThread(() -> {
+          closeProgressDialog();
+          Toast.makeText(getContext(), "加载失败", Toast.LENGTH_SHORT).show();
         });
       }
 
@@ -183,17 +182,18 @@ public class ChooseAreaFragment extends Fragment {
           result = Utility.handleCountyResponse(responseText, selectedCity.getId());
         }
         if (result) {
-          getActivity().runOnUiThread(new Runnable() {
-            @Override
-            public void run() {
-              closeProgressDialog();
-              if ("province".equals(type)) {
+          requireActivity().runOnUiThread(() -> {
+            closeProgressDialog();
+            switch (type) {
+              case "province":
                 queryProvinces();
-              } else if ("city".equals(type)) {
+                break;
+              case "city":
                 queryCities();
-              } else if ("county".equals(type)) {
+                break;
+              case "county":
                 queryCounties();
-              }
+                break;
             }
           });
         }

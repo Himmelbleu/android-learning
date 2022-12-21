@@ -10,7 +10,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
@@ -52,7 +51,6 @@ public class WeatherActivity extends AppCompatActivity {
   private ImageView bingPicImg;
   public SwipeRefreshLayout swipeRefresh;
   public DrawerLayout drawerLayout;
-  private Button navButton;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -73,7 +71,7 @@ public class WeatherActivity extends AppCompatActivity {
     bingPicImg = findViewById(R.id.bing_pic_img);
     swipeRefresh = findViewById(R.id.swipe_refresh);
     drawerLayout = findViewById(R.id.drawer_layout);
-    navButton = findViewById(R.id.nav_button);
+    Button navButton = findViewById(R.id.nav_button);
 
     swipeRefresh.setColorSchemeResources(R.color.colorPrimary);
 
@@ -91,9 +89,7 @@ public class WeatherActivity extends AppCompatActivity {
     }
 
     swipeRefresh.setOnRefreshListener(() -> requestWeather(weatherId));
-    navButton.setOnClickListener(v -> {
-      drawerLayout.openDrawer(GravityCompat.START);
-    });
+    navButton.setOnClickListener(v -> drawerLayout.openDrawer(GravityCompat.START));
 
     String bingPic = prefs.getString("bing_pic", null);
     if (bingPic != null) {
