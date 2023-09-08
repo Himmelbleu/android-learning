@@ -97,9 +97,9 @@ Songs(
 
 ## 我的博客
 
-1. [LitePal 创建表不生效的问题](https://www.cnblogs.com/Enziandom/#/e/16983830)
-2. [Android：Banner 和 Glide 在 Fragment 中实现轮播图](https://www.cnblogs.com/Enziandom/#/e/16975095)
-3. [Fragment 和布局文件中的 include 有何区别？](https://www.cnblogs.com/Enziandom/#/e/16972733)
+1. [LitePal 在第一次创建表之后第二次创建新的表不生效](https://www.cnblogs.com/himmelbleu#/p/16983830)
+2. [Banner 和 Glide 在 Fragment 中实现轮播图](https://www.cnblogs.com/himmelbleu#/p/16975095)
+3. [Fragment 和 include 标签引入布局的区别](https://www.cnblogs.com/himmelbleu#/p/16972733)
 
 ## 其他人的博客
 
